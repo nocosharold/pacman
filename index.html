@@ -239,7 +239,7 @@
 					pacman.y++;
 				}
 			}
-
+			//chase
 			function moveGhostRed(e) {
 				if (e.keyCode == 37 && world[ghostRed.y][ghostRed.x - 1] != 2) {
 					if (pacman.x < ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2){
