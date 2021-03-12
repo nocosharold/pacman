@@ -178,7 +178,7 @@
 			};
 
 			var ghostRed = {
-				x: 8,
+				x: 9,
 				y: 7,
 			};
 
@@ -242,58 +242,66 @@
 			//chase
 			function moveGhostRed(e) {
 				if (e.keyCode == 37 && world[ghostRed.y][ghostRed.x - 1] != 2) {
-					if (pacman.x < ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2){
-						ghostRed.x--;
-					} else if (pacman.x == ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y + 1][ghostRed.x] != 2) {
+					if (pacman.x < ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y - 1][ghostRed.x] != 2){
 						ghostRed.y--;
-					} else if (pacman.x < ghostRed.x && pacman.y > ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2) {
+					} else if (pacman.x < ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x - 1] != 2){
 						ghostRed.x--;
-					} else if (pacman.x == ghostRed.x && pacman.y > ghostRed.y && world[ghostRed.y - 1][ghostRed.x] != 2) {
+					} else if (pacman.x < ghostRed.x && pacman.y > ghostRed.y && world[ghostRed.y + 1][ghostRed.x] != 2){
 						ghostRed.y++;
-					} else {
+					} else if (pacman.x < ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2){
+						ghostRed.x++;
+					} else if (pacman.x > ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2){
 						ghostRed.x++;
 					}
 
 				} else if (e.keyCode == 39 && world[ghostRed.y][ghostRed.x + 1] != 2) {
-					if (pacman.x > ghostRed.x && pacman.y < ghostRed.y){
-						ghostRed.x++;
-					} else if (pacman.x == ghostRed.x && pacman.y < ghostRed.y){
+					if (pacman.x > ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y - 1][ghostRed.x] != 2){
 						ghostRed.y--;
-					} else if (pacman.x > ghostRed.x && pacman.y > ghostRed.y){
+					} else if (pacman.x > ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2){
 						ghostRed.x++;
-					} else if (pacman.x == ghostRed.x && pacman.y > ghostRed.y){
+					} else if (pacman.x > ghostRed.x && pacman.y > ghostRed.y && world[ghostRed.y + 1][ghostRed.x] != 2){
 						ghostRed.y++;
-					} else {
+					} else if (pacman.x > ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2){
+						ghostRed.x++;
+					} else if (pacman.x < ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x - 1] != 2){
 						ghostRed.x--;
 					}
 
 				} else if (e.keyCode == 38 && world[ghostRed.y + 1][ghostRed.x] != 2) {
-					if (pacman.x < ghostRed.x && pacman.y < ghostRed.y){
+					if (pacman.x < ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y - 1][ghostRed.x] != 2){
+						ghostRed.y--;
+					} else if (pacman.x < ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x - 1] != 2){
 						ghostRed.x--;
-					} else if (pacman.x == ghostRed.x && pacman.y < ghostRed.y) {
+					} else if (pacman.x > ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y - 1][ghostRed.x] != 2){
 						ghostRed.y--;
-					} else if (pacman.x > ghostRed.x && pacman.y < ghostRed.y) {
+					} else if (pacman.x > ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2){
 						ghostRed.x++;
-					} else if (pacman.x == ghostRed.x && pacman.y < ghostRed.y) {
+					} else if (pacman.x == ghostRed.x && pacman.y < ghostRed.y &&world[ghostRed.y - 1][ghostRed.x] != 2){
 						ghostRed.y--;
-					} else {
+					} else if (pacman.x == ghostRed.x && pacman.y > ghostRed.y && world[ghostRed.y + 1][ghostRed.x] != 2){
 						ghostRed.y++;
 					}
 
 				} else if (e.keyCode == 40 && world[ghostRed.y - 1][ghostRed.x] != 2) {
-					if (pacman.x < ghostRed.x && pacman.y > ghostRed.y){
-						ghostRed.x--;
-					} else if (pacman.x == ghostRed.x && pacman.y > ghostRed.y){
+					if (pacman.x > ghostRed.x && pacman.y > ghostRed.y && world[ghostRed.y + 1][ghostRed.x] != 2){
 						ghostRed.y++;
-					} else if (pacman.x > ghostRed.x && pacman.y > ghostRed.y){
+					} else if (pacman.x > ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x + 1] != 2){
 						ghostRed.x++;
-					} else if (pacman.x == ghostRed.x && pacman.y > ghostRed.y){
+					} else if (pacman.x < ghostRed.x && pacman.y > ghostRed.y && world[ghostRed.y + 1][ghostRed.x] != 2){
 						ghostRed.y++;
-					} else {
+					} else if (pacman.x < ghostRed.x && pacman.y == ghostRed.y && world[ghostRed.y][ghostRed.x - 1] != 2){
+						ghostRed.x--;
+					} else if (pacman.x == ghostRed.x && pacman.y > ghostRed.y &&world[ghostRed.y + 1][ghostRed.x] != 2){
+						ghostRed.y++;
+					} else if (pacman.x == ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y - 1][ghostRed.x] != 2){
 						ghostRed.y--;
 					}
 				} 
-				
+				console.log(e.keyCode)
+				console.log("Pacman value x:" + pacman.x)
+				console.log("Pacman value y:" + pacman.y)
+				console.log("Ghost value x:" + ghostRed.x)
+				console.log("Ghost value y:" + ghostRed.y)
 			}
 
 			function moveGhostCyan(e) {
