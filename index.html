@@ -35,7 +35,7 @@
 				background-color: transparent;
 			}
 			div#pacman {
-				background-image: url(pacman.gif);
+				background-image: url(right.gif);
 				background-repeat: no-repeat;
 				background-size: cover;
 				width: 20px;
@@ -206,6 +206,7 @@
 			function displayPacman() {
 				document.getElementById("pacman").style.top = pacman.y * 20 + "px";
 				document.getElementById("pacman").style.left = pacman.x * 20 + "px";
+				
 			}
 
 			function displayGhostRed() {
@@ -231,12 +232,16 @@
 			function movePacman(e) {
 				if (e.keyCode == 37 && world[pacman.y][pacman.x - 1] != 2) {
 					pacman.x--;
+					document.getElementById("pacman").style.backgroundImage = "url('left.gif')";
 				} else if (e.keyCode == 39 && world[pacman.y][pacman.x + 1] != 2) {
 					pacman.x++;
+					document.getElementById("pacman").style.backgroundImage = "url('right.gif')";
 				} else if (e.keyCode == 38 && world[pacman.y - 1][pacman.x] != 2) {
 					pacman.y--;
+					document.getElementById("pacman").style.backgroundImage = "url('up.gif')";
 				} else if (e.keyCode == 40 && world[pacman.y + 1][pacman.x] != 2) {
 					pacman.y++;
+					document.getElementById("pacman").style.backgroundImage = "url('down.gif')";
 				}
 			}
 			//chase
@@ -297,11 +302,7 @@
 						ghostRed.y--;
 					}
 				} 
-				console.log(e.keyCode)
-				console.log("Pacman value x:" + pacman.x)
-				console.log("Pacman value y:" + pacman.y)
-				console.log("Ghost value x:" + ghostRed.x)
-				console.log("Ghost value y:" + ghostRed.y)
+				
 			}
 
 			function moveGhostCyan(e) {
