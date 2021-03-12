@@ -244,7 +244,7 @@
 					document.getElementById("pacman").style.backgroundImage = "url('down.gif')";
 				}
 			}
-			//chase
+			
 			function moveGhostRed(e) {
 				if (e.keyCode == 37 && world[ghostRed.y][ghostRed.x - 1] != 2) {
 					if (pacman.x < ghostRed.x && pacman.y < ghostRed.y && world[ghostRed.y - 1][ghostRed.x] != 2){
